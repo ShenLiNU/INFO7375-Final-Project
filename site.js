@@ -1,27 +1,27 @@
 const scenarios = {
   "project-rule": {
-    title: "Project guardrail recall",
-    body: "The agent remembers that tmp/ contains reference repositories and should not be edited as first-party implementation.",
-    command: "npm run validate:opencode-project-rule",
-    tags: ["project-fact", "reinforced duplicate", "guardrail"]
+    title: "Repository memory",
+    body: "The runtime preserves durable project rules, such as keeping reference repositories separate from first-party implementation work.",
+    command: "Memory recalled: tmp/ is reference-only, not implementation space.",
+    tags: ["project facts", "guardrails", "reinforcement"]
   },
   "interrupted-task": {
-    title: "Task continuity after interruption",
-    body: "The runtime recalls the current task state and generated handoff so work can resume without restating the whole context.",
-    command: "npm run validate:opencode-interrupted-task",
-    tags: ["task-memory", "session-summary", "handoff"]
+    title: "Session continuity",
+    body: "Task state and handoff summaries survive across agent sessions, so the next run can resume without a long recap from the user.",
+    command: "Memory recalled: current task state, next action, and handoff summary.",
+    tags: ["task state", "handoff", "continuity"]
   },
   "architecture-rationale": {
-    title: "Decision-memory rationale",
-    body: "The agent recalls why the system is runtime-first while OpenCode remains a thin adapter instead of becoming the system core.",
-    command: "npm run validate:opencode-architecture-rationale",
-    tags: ["decision-memory", "FTS5", "architecture"]
+    title: "Architecture rationale",
+    body: "Decision memory preserves the reasoning behind the runtime-first boundary while OpenCode stays a thin integration surface.",
+    command: "Memory recalled: storage belongs in the runtime; OpenCode remains an adapter.",
+    tags: ["decision memory", "architecture", "rationale"]
   },
   "decision-update": {
-    title: "Superseded decision update",
-    body: "A stale adapter-owned storage decision is superseded by the current local-first runtime decision, while audit logs keep the old memory visible.",
-    command: "npm run validate:opencode-decision-update",
-    tags: ["supersession", "audit log", "exact output"]
+    title: "Stale-memory cleanup",
+    body: "When a decision changes, newer memory can supersede the old version without deleting the audit trail.",
+    command: "Memory recalled: keep storage local-first in the runtime while the adapter stays thin.",
+    tags: ["supersession", "audit trail", "governance"]
   }
 };
 

@@ -642,7 +642,7 @@
         <a href="#features">Features</a>
         <a href="#demo">Demo</a>
         <a href="#evidence">Evidence</a>
-        <a href="#docs">Docs</a>
+        <a href="#docs">Report</a>
       </nav>
     </header>
 
@@ -657,9 +657,9 @@
             evidence instead of opaque prompt stuffing.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="README.md">Open README</a>
-            <a class="button secondary" href="docs/final-delivery-checklist.md">Delivery checklist</a>
-            <a class="button secondary" href="https://github.com/ShenLiNU/INFO7375-Final-Project" rel="noreferrer">GitHub repository</a>
+            <a class="button primary" href="https://github.com/ShenLiNU/INFO7375-Final-Project" rel="noreferrer">View on GitHub</a>
+            <a class="button secondary" href="docs/final-report.pdf">Read the report</a>
+            <a class="button secondary" href="https://github.com/ShenLiNU/INFO7375-Final-Project/tree/master/packages/runtime" rel="noreferrer">Explore runtime</a>
           </div>
         </div>
 
@@ -755,10 +755,10 @@ while the OpenCode adapter stays thin.</code></pre>
 
       <section id="demo" class="shell" aria-labelledby="demo-title">
         <div class="section-head">
-          <h2 id="demo-title">Interactive scenario preview</h2>
-          <p>
-            These tabs summarize the same scenarios used by the executable evaluation scripts. The
-            real artifacts are generated under `.runtime-data/opencode-validation/`.
+            <h2 id="demo-title">Memory scenarios</h2>
+            <p>
+            Four compact scenarios show how the runtime preserves guardrails, task continuity,
+            architecture rationale, and stale-decision cleanup across agent sessions.
           </p>
         </div>
         <article class="card demo-panel">
@@ -774,10 +774,10 @@ while the OpenCode adapter stays thin.</code></pre>
 
       <section id="evidence" class="shell" aria-labelledby="evidence-title">
         <div class="section-head">
-          <h2 id="evidence-title">Evaluation evidence</h2>
+            <h2 id="evidence-title">Measured outcomes</h2>
           <p>
-            The assignment requires tests, example outputs, and performance metrics. This project uses
-            scenario artifacts as concrete evidence rather than screenshots alone.
+            The project records concrete runtime behavior instead of relying on screenshots alone:
+            tests, recall metrics, validation logs, snapshots, and generated handoff artifacts.
           </p>
         </div>
         <div class="grid evidence">
@@ -788,8 +788,8 @@ while the OpenCode adapter stays thin.</code></pre>
           </article>
           <article class="card">
             <span class="kicker">Metrics</span>
-            <h3>Recall scoring</h3>
-            <p>`recall-metrics.json` tracks expected matches, candidates, included memories, omitted memories, and budget usage.</p>
+            <h3>Recall budget tracking</h3>
+            <p>Scenario metrics track expected matches, candidates, included memories, omitted memories, and context budget usage.</p>
           </article>
           <article class="card">
             <span class="kicker">Artifacts</span>
@@ -806,30 +806,29 @@ while the OpenCode adapter stays thin.</code></pre>
 
       <section id="docs" class="shell" aria-labelledby="docs-title">
         <div class="section-head">
-          <h2 id="docs-title">Project documentation</h2>
+            <h2 id="docs-title">Read more</h2>
           <p>
-            These links satisfy the setup, documentation, architecture, and final report preparation
-            requirements. They work when the page is opened locally or served by GitHub Pages.
+            These links open either the polished PDF report or GitHub-rendered repository pages, so
+            visitors do not land on raw Markdown text inside GitHub Pages.
           </p>
         </div>
         <div class="grid doc-links">
-          <a class="card doc-link" href="README.md"><span><strong>README</strong><br>Setup, scripts, architecture, and validation notes.</span><span aria-hidden="true">-&gt;</span></a>
-          <a class="card doc-link" href="docs/evidence-matrix.md"><span><strong>Evidence matrix</strong><br>Requirement-to-artifact mapping for the report.</span><span aria-hidden="true">-&gt;</span></a>
-          <a class="card doc-link" href="docs/demo-runbook.md"><span><strong>Demo runbook</strong><br>10-minute video structure and live demo commands.</span><span aria-hidden="true">-&gt;</span></a>
-          <a class="card doc-link" href="docs/final-report-outline.md"><span><strong>Final report outline</strong><br>PDF report sections, metrics, challenges, and future work.</span><span aria-hidden="true">-&gt;</span></a>
+          <a class="card doc-link" href="docs/final-report.pdf"><span><strong>Final report</strong><br>Architecture, implementation details, metrics, challenges, ethics, and future work.</span><span aria-hidden="true">-&gt;</span></a>
+          <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project#readme" rel="noreferrer"><span><strong>Repository guide</strong><br>Setup, scripts, architecture, and validation notes rendered by GitHub.</span><span aria-hidden="true">-&gt;</span></a>
+          <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project/tree/master/evaluation" rel="noreferrer"><span><strong>Evaluation scenarios</strong><br>Executable memory scenarios and validation scripts.</span><span aria-hidden="true">-&gt;</span></a>
+          <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project/tree/master/packages" rel="noreferrer"><span><strong>Source code</strong><br>Runtime and thin OpenCode adapter implementation.</span><span aria-hidden="true">-&gt;</span></a>
         </div>
 
         <div class="cta">
-          <span class="kicker">Submission note</span>
-          <h2>Ready for GitHub Pages</h2>
+          <span class="kicker">Project snapshot</span>
+          <h2>Local memory, visible evidence</h2>
           <p>
-            Place this repository on GitHub, replace the repository link in this page, and enable
-            GitHub Pages from the repository root or the `main` branch root. The page is static and
-            does not require a build step.
+            The runtime keeps agent memory local and inspectable while still producing enough
+            structured evidence to evaluate retrieval quality, continuity, and stale-memory handling.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="assignment.txt">Assignment requirements</a>
-            <a class="button secondary" href="docs/final-delivery-checklist.md">Final checklist</a>
+            <a class="button primary" href="https://github.com/ShenLiNU/INFO7375-Final-Project" rel="noreferrer">Open repository</a>
+            <a class="button secondary" href="docs/final-report.pdf">Download report</a>
           </div>
         </div>
       </section>
