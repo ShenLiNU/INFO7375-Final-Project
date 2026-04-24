@@ -214,7 +214,6 @@ This repository includes the public project materials:
 - architecture documentation
 - `docs/final-report.md` and `docs/final-report.pdf`
 - `docs/evidence-matrix.md`
-- `docs/demo-runbook.md`
 - `index.html` and `site.js`
 
 ## Important Boundaries
@@ -229,5 +228,4 @@ This repository includes the public project materials:
 - `README.md` - project overview, setup, scripts, and deliverable pointers
 - `docs/final-report.md` and `docs/final-report.pdf` - formal report source and exported PDF
 - `docs/evidence-matrix.md` - requirement-to-artifact mapping for the final submission
-- `docs/demo-runbook.md` - presentation and demo plan
 - `index.html` and `site.js` - static project page and scenario demo logic

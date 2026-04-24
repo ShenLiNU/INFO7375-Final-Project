@@ -143,7 +143,7 @@ Remote team memory, dashboards, graph reasoning, and vector-heavy backends could
 
 ## 11. Repository and Deliverables
 
-The repository includes complete first-party source code, setup instructions, test scripts, scenario definitions, generated example-output paths, documentation, a static project web page, and this final report source. The demo can follow `docs/demo-runbook.md`.
+The repository includes complete first-party source code, setup instructions, test scripts, scenario definitions, generated example-output paths, documentation, a static project web page, and this final report source.
 
 Key reviewer entry points:
 
@@ -153,4 +153,3 @@ Key reviewer entry points:
 - `packages/opencode-adapter/`
 - `evaluation/`
 - `docs/evidence-matrix.md`
-- `docs/demo-runbook.md`
