@@ -1,26 +1,26 @@
 const scenarios = {
   "project-rule": {
     title: "Repository memory",
-    body: "The runtime preserves durable project rules, such as keeping reference repositories separate from first-party implementation work.",
-    command: "Memory recalled: tmp/ is reference-only, not implementation space.",
+    body: "The runtime preserves durable project rules, including the boundary that keeps reference material separate from first-party implementation work.",
+    command: "Recall: tmp/ is reference-only, not implementation space.",
     tags: ["project facts", "guardrails", "reinforcement"]
   },
   "interrupted-task": {
     title: "Session continuity",
     body: "Task state and handoff summaries survive across agent sessions, so the next run can resume without a long recap from the user.",
-    command: "Memory recalled: current task state, next action, and handoff summary.",
+    command: "Recall: current task state, next action, and handoff summary.",
     tags: ["task state", "handoff", "continuity"]
   },
   "architecture-rationale": {
     title: "Architecture rationale",
     body: "Decision memory preserves the reasoning behind the runtime-first boundary while OpenCode stays a thin integration surface.",
-    command: "Memory recalled: storage belongs in the runtime; OpenCode remains an adapter.",
+    command: "Recall: storage belongs in the runtime; OpenCode remains an adapter.",
     tags: ["decision memory", "architecture", "rationale"]
   },
   "decision-update": {
     title: "Stale-memory cleanup",
-    body: "When a decision changes, newer memory can supersede the old version without deleting the audit trail.",
-    command: "Memory recalled: keep storage local-first in the runtime while the adapter stays thin.",
+    body: "When a decision changes, newer memory can supersede the older version without deleting the audit trail.",
+    command: "Recall: keep storage local-first in the runtime while the adapter stays thin.",
     tags: ["supersession", "audit trail", "governance"]
   }
 };

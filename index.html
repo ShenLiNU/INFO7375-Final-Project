@@ -6,7 +6,7 @@
     <title>Persistent Memory Runtime for Coding Agents</title>
     <meta
       name="description"
-      content="INFO7375 final project: a local-first persistent memory runtime for coding agents with explainable recall, governance, and OpenCode validation evidence."
+      content="INFO7375 final project: a local-first persistent memory runtime for coding agents with explainable recall, governance, and OpenCode validation results."
     >
     <script src="site.js" defer></script>
     <style>
@@ -688,7 +688,7 @@
       <nav class="nav-links" aria-label="Page sections">
         <a href="#features">Features</a>
         <a href="#demo">Demo</a>
-        <a href="#evidence">Evidence</a>
+        <a href="#evidence">Results</a>
         <a href="#docs">Report</a>
       </nav>
     </header>
@@ -700,8 +700,8 @@
           <h1 id="page-title">Persistent Memory Runtime for Coding Agents</h1>
           <p class="lead">
             A TypeScript + SQLite runtime that lets coding agents remember project rules, task state,
-            and architecture decisions across sessions, then recall bounded context with explainable
-            evidence instead of opaque prompt stuffing.
+            and architecture decisions across sessions, then recall bounded context with transparent
+            scoring instead of opaque prompt stuffing.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://github.com/ShenLiNU/INFO7375-Final-Project" rel="noreferrer">View on GitHub</a>
@@ -756,11 +756,11 @@ while the OpenCode adapter stays thin.</code></pre>
             </p>
           </article>
           <article class="card">
-            <span class="kicker">Evidence</span>
-            <h3>Auditable artifacts</h3>
+            <span class="kicker">Results</span>
+            <h3>Reviewable outputs</h3>
             <p>
               Writes prompt documents, recall logs, recall metrics, portable snapshots, prune plans,
-              and validation results for final report evidence.
+              and validation results for the final report.
             </p>
           </article>
         </div>
@@ -794,7 +794,7 @@ while the OpenCode adapter stays thin.</code></pre>
               <span class="pill">FTS5 fallback</span>
               <span class="pill">Decision memory</span>
               <span class="pill">Prompt engineering</span>
-              <span class="pill">RAG evidence</span>
+              <span class="pill">RAG validation</span>
             </div>
           </article>
         </div>
@@ -802,8 +802,8 @@ while the OpenCode adapter stays thin.</code></pre>
 
       <section id="demo" class="shell" aria-labelledby="demo-title">
         <div class="section-head">
-            <h2 id="demo-title">Memory scenarios</h2>
-            <p>
+          <h2 id="demo-title">Memory scenarios</h2>
+          <p>
             Four compact scenarios show how the runtime preserves guardrails, task continuity,
             architecture rationale, and stale-decision cleanup across agent sessions.
           </p>
@@ -821,7 +821,7 @@ while the OpenCode adapter stays thin.</code></pre>
 
       <section id="evidence" class="shell" aria-labelledby="evidence-title">
         <div class="section-head">
-            <h2 id="evidence-title">Measured outcomes</h2>
+          <h2 id="evidence-title">Measured outcomes</h2>
           <p>
             The project records concrete runtime behavior instead of relying on screenshots alone:
             tests, recall metrics, validation logs, snapshots, and generated handoff artifacts.
@@ -846,32 +846,31 @@ while the OpenCode adapter stays thin.</code></pre>
           <article class="card">
             <span class="kicker">Ethics</span>
             <h3>Local-first privacy</h3>
-            <p>Memory is stored locally by default; generated evidence makes limitations and recall behavior inspectable.</p>
+            <p>Memory is stored locally by default; generated outputs make limitations and recall behavior inspectable.</p>
           </article>
         </div>
       </section>
 
       <section id="docs" class="shell" aria-labelledby="docs-title">
         <div class="section-head">
-            <h2 id="docs-title">Read more</h2>
+          <h2 id="docs-title">Read more</h2>
           <p>
-            These links open either the polished PDF report or GitHub-rendered repository pages, so
-            visitors do not land on raw Markdown text inside GitHub Pages.
+            These links point to the polished report and project materials.
           </p>
         </div>
         <div class="grid doc-links">
           <a class="card doc-link" href="docs/final-report.pdf"><span><strong>Final report</strong><br>Architecture, implementation details, metrics, challenges, ethics, and future work.</span><span aria-hidden="true">-&gt;</span></a>
-          <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project#readme" rel="noreferrer"><span><strong>Repository guide</strong><br>Setup, scripts, architecture, and validation notes rendered by GitHub.</span><span aria-hidden="true">-&gt;</span></a>
+          <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project#readme" rel="noreferrer"><span><strong>Repository guide</strong><br>Setup, scripts, architecture, and validation notes.</span><span aria-hidden="true">-&gt;</span></a>
           <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project/tree/master/evaluation" rel="noreferrer"><span><strong>Evaluation scenarios</strong><br>Executable memory scenarios and validation scripts.</span><span aria-hidden="true">-&gt;</span></a>
           <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project/tree/master/packages" rel="noreferrer"><span><strong>Source code</strong><br>Runtime and thin OpenCode adapter implementation.</span><span aria-hidden="true">-&gt;</span></a>
         </div>
 
         <div class="cta">
           <span class="kicker">Project snapshot</span>
-          <h2>Local memory, visible evidence</h2>
+          <h2>Local memory, visible results</h2>
           <p>
             The runtime keeps agent memory local and inspectable while still producing enough
-            structured evidence to evaluate retrieval quality, continuity, and stale-memory handling.
+            structured results to evaluate retrieval quality, continuity, and stale-memory handling.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://github.com/ShenLiNU/INFO7375-Final-Project" rel="noreferrer">Open repository</a>
@@ -884,7 +883,7 @@ while the OpenCode adapter stays thin.</code></pre>
     <footer class="shell">
       <p>
         INFO7375 Final Project. Built as a local-first memory runtime with Prompt Engineering and
-        Retrieval-Augmented Generation evidence.
+        Retrieval-Augmented Generation validation.
       </p>
     </footer>
 
