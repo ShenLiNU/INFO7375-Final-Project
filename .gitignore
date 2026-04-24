@@ -1,3 +1,4 @@
 .runtime-data/
 tmp/
+tmp-page-audit/
 node_modules/

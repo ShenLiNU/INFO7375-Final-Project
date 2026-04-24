@@ -200,7 +200,7 @@
 
       .eyebrow::before {
         display: inline-block;
-        width: 10px;
+        width: 42px;
         height: 10px;
         content: "";
         background: var(--clay);
@@ -212,19 +212,20 @@
       h2,
       h3 {
         margin: 0;
-        line-height: 0.98;
+        line-height: 1.04;
       }
 
       h1 {
-        max-width: 11ch;
-        font-size: clamp(4rem, 10vw, 9.4rem);
-        letter-spacing: -0.075em;
+        max-width: 10.4ch;
+        font-size: clamp(3.8rem, 8.8vw, 8.2rem);
+        letter-spacing: -0.065em;
       }
 
       h2 {
         max-width: 12ch;
         font-size: clamp(2.5rem, 6vw, 5.4rem);
-        letter-spacing: -0.055em;
+        line-height: 1.08;
+        letter-spacing: -0.045em;
       }
 
       h3 {
@@ -262,12 +263,13 @@
 
       .hero-card::after {
         position: absolute;
+        z-index: 0;
         right: -58px;
         bottom: -76px;
         width: 260px;
         height: 260px;
         content: "";
-        background: radial-gradient(circle, rgba(228, 182, 85, 0.88), transparent 63%);
+        background: radial-gradient(circle, rgba(228, 182, 85, 0.54), transparent 66%);
         border-radius: 50%;
       }
 
@@ -329,9 +331,11 @@
       }
 
       .metric {
+        position: relative;
+        z-index: 2;
         padding: 16px;
-        background: rgba(255, 250, 240, 0.1);
-        border: 1px solid rgba(255, 250, 240, 0.16);
+        background: rgba(255, 250, 240, 0.18);
+        border: 1px solid rgba(255, 250, 240, 0.24);
         border-radius: 18px;
       }
 
@@ -474,6 +478,14 @@
         gap: 14px;
         min-height: 300px;
         padding: 24px;
+      }
+
+      .demo-output pre {
+        padding: 14px 16px;
+        color: var(--charcoal);
+        background: rgba(73, 107, 79, 0.08);
+        border: 1px solid rgba(73, 107, 79, 0.16);
+        border-radius: 16px;
       }
 
       .pill-row {
@@ -624,7 +636,8 @@
         }
 
         h1 {
-          font-size: clamp(3.4rem, 18vw, 5rem);
+          font-size: clamp(3.05rem, 15vw, 4.45rem);
+          line-height: 1.02;
         }
 
         .card,
@@ -643,8 +656,23 @@
         }
 
         pre {
-          font-size: 0.8rem;
+          font-size: 0.74rem;
           line-height: 1.7;
+        }
+
+        .brand {
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+          display: grid;
+          width: 100%;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .nav-links a {
+          padding-inline: 12px;
         }
       }
     </style>
