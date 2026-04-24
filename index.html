@@ -699,9 +699,9 @@
           <p class="eyebrow">Local-first agent memory</p>
           <h1 id="page-title">Persistent Memory Runtime for Coding Agents</h1>
           <p class="lead">
-            A TypeScript + SQLite runtime that lets coding agents remember project rules, task state,
-            and architecture decisions across sessions, then recall bounded context with transparent
-            scoring instead of opaque prompt stuffing.
+            A TypeScript + SQLite runtime for project rules, task state, and architecture decisions.
+            Memory is persisted locally, then recalled with transparent scoring and bounded prompt
+            context instead of large unstructured prompt blocks.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://github.com/ShenLiNU/INFO7375-Final-Project" rel="noreferrer">View on GitHub</a>
@@ -725,7 +725,7 @@ while the OpenCode adapter stays thin.</code></pre>
           <div class="metric-strip" aria-label="Project metrics">
             <div class="metric"><strong>4</strong><span>scenarios</span></div>
             <div class="metric"><strong>26</strong><span>tests</span></div>
-            <div class="metric"><strong>0</strong><span>cloud deps</span></div>
+            <div class="metric"><strong>0</strong><span>runtime cloud deps</span></div>
           </div>
         </aside>
       </section>
@@ -744,7 +744,7 @@ while the OpenCode adapter stays thin.</code></pre>
             <h3>Explainable retrieval</h3>
             <p>
               Retrieves project facts, task memory, decisions, and summaries using scoped filters,
-              keyword scoring, tags, kinds, and SQLite FTS5 BM25 when available.
+              keyword scoring, tags, kinds, deterministic fallback, and SQLite FTS5 BM25 when available.
             </p>
           </article>
           <article class="card">
@@ -786,12 +786,12 @@ while the OpenCode adapter stays thin.</code></pre>
             <h3>Lightweight retrieval-augmented generation</h3>
             <p>
               The knowledge base is local memory. Retrieval uses explicit project/task scope and
-              explainable ranking instead of requiring a hosted vector database. OpenCode receives a
-              bounded context bundle, while recall logs keep the audit trail out of the prompt.
+              explainable lexical ranking instead of requiring a hosted vector database. OpenCode
+              receives a bounded context bundle, while recall logs keep the audit trail out of the prompt.
             </p>
             <div class="pill-row" aria-label="Architecture tags">
               <span class="pill">SQLite</span>
-              <span class="pill">FTS5 fallback</span>
+              <span class="pill">FTS5 + fallback</span>
               <span class="pill">Decision memory</span>
               <span class="pill">Prompt engineering</span>
               <span class="pill">RAG validation</span>
@@ -860,6 +860,7 @@ while the OpenCode adapter stays thin.</code></pre>
         </div>
         <div class="grid doc-links">
           <a class="card doc-link" href="docs/final-report.pdf"><span><strong>Final report</strong><br>Architecture, implementation details, metrics, challenges, ethics, and future work.</span><span aria-hidden="true">-&gt;</span></a>
+          <a class="card doc-link" href="docs/evidence-matrix.md"><span><strong>Evidence matrix</strong><br>Assignment requirements mapped to source, tests, artifacts, and web deliverables.</span><span aria-hidden="true">-&gt;</span></a>
           <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project#readme" rel="noreferrer"><span><strong>Repository guide</strong><br>Setup, scripts, architecture, and validation notes.</span><span aria-hidden="true">-&gt;</span></a>
           <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project/tree/master/evaluation" rel="noreferrer"><span><strong>Evaluation scenarios</strong><br>Executable memory scenarios and validation scripts.</span><span aria-hidden="true">-&gt;</span></a>
           <a class="card doc-link" href="https://github.com/ShenLiNU/INFO7375-Final-Project/tree/master/packages" rel="noreferrer"><span><strong>Source code</strong><br>Runtime and thin OpenCode adapter implementation.</span><span aria-hidden="true">-&gt;</span></a>

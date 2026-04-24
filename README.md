@@ -5,7 +5,24 @@
 
 This repository implements a local-first persistent memory runtime for coding agents, with OpenCode as the primary integration and demo surface.
 
+The project starts from a practical problem: coding agents can solve useful tasks inside one prompt, but they often lose the project rules, interrupted work, and architecture decisions that make the next session successful. Instead of making prompts larger, this project stores durable knowledge locally, retrieves a small relevant set for the current task, and shows why each memory was recalled.
+
 The project is intentionally runtime-first rather than plugin-first. The memory runtime is the core product, and the OpenCode adapter remains a thin layer that prepares bounded context for a real coding workflow.
+
+## Submission Overview
+
+This submission focuses on two course components:
+
+- **Prompt Engineering:** structured OpenCode prompt documents, bounded durable/working memory sections, scenario-specific instructions, and handoff artifacts.
+- **Retrieval-Augmented Generation (RAG):** a local SQLite knowledge base, scoped lexical retrieval, explainable deterministic ranking, context assembly, and recall/validation artifacts.
+
+Suggested reading order:
+
+1. read this `README.md` for setup, scope, and architecture
+2. open `docs/final-report.md` or `docs/final-report.pdf` for the formal report
+3. inspect `docs/evidence-matrix.md` for requirement-to-artifact mapping
+4. run `npm test` for deterministic runtime and evaluation verification
+5. open `index.html` for the static project showcase page
 
 ## Current Status
 
@@ -14,7 +31,7 @@ The first-party implementation is in place. The repository now includes:
 - a TypeScript runtime under `packages/runtime/`
 - a thin OpenCode adapter under `packages/opencode-adapter/`
 - project-specific evaluation scenarios and validation scripts under `evaluation/`
-- validation outputs under `.runtime-data/opencode-validation/`
+- generated validation outputs under `.runtime-data/opencode-validation/` after scenario preparation or validation runs
 
 The runtime supports:
 
@@ -81,12 +98,13 @@ The current project-specific scenarios are:
 - `project-rule`
 - `interrupted-task`
 - `architecture-rationale`
+- `decision-update`
 
 ## RAG in the Current Implementation
 
 This project intentionally chooses **Prompt Engineering** and **Retrieval-Augmented Generation (RAG)** as the two implemented course components.
 
-Prompt Engineering is implemented through structured OpenCode prompt documents, bounded memory sections, scenario-specific output instructions, and session handoff templates. RAG is implemented through a local SQLite knowledge base, scoped retrieval, explainable ranking, context assembly, and validation outputs.
+Prompt Engineering is implemented through structured OpenCode prompt documents, bounded memory sections, scenario-specific output instructions, and session handoff templates. RAG is implemented through a local SQLite knowledge base, scoped retrieval, explainable ranking, context assembly, and generated validation outputs.
 
 The current implementation includes a real RAG loop.
 

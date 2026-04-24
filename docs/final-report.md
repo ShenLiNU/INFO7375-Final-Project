@@ -6,7 +6,11 @@ INFO7375 Generative AI Final Project
 
 Coding agents can complete useful single-session tasks, but they often lose project continuity across sessions. Users must repeatedly restate repository guardrails, interrupted task state, architecture decisions, and why earlier tradeoffs were made. This project addresses that problem with a local-first persistent memory runtime for coding agents.
 
+The design avoids treating memory as a raw transcript. It stores structured memory items, retrieves a small relevant set for the current task, and records the evidence behind each recall decision. This gives the agent continuity without expanding the prompt with unstructured notes.
+
 The system is designed for realistic developer workflows. It stores durable project facts, task memory, architecture decisions, and session summaries locally, then recalls a bounded context bundle for later agent runs. The core product is the memory runtime; OpenCode is used as a thin integration and demonstration surface.
+
+This project focuses on the memory layer itself: SQLite-backed persistence, explainable retrieval, context budgeting, memory governance, generated evidence artifacts, and a thin host adapter that can feed a real coding-agent run.
 
 ## 2. Generative AI Components
 
@@ -105,6 +109,8 @@ The latest local verification passed 26 tests. These tests cover persistence, co
 
 Scenario preparation emits structured metrics in `recall-metrics.json`, including expected memory count, matched expected count, candidate count, included count, omitted count, superseded count, unexpected included count, and character budget usage. This provides results for the RAG loop without depending only on screenshots.
 
+The evaluation artifacts also make the memory behavior reviewable after the model run. `recall-log.json` records candidate memories, score reasons, included and omitted IDs, superseded IDs, and context budget usage. `memory-snapshot.json` preserves the local knowledge base used for the run, while `prune-plan.json` shows lifecycle governance decisions without mutating the database. Together, these artifacts connect the visible agent output back to concrete retrieval evidence.
+
 The `decision-update` real OpenCode validation passed with exact output:
 
 ```text
@@ -137,7 +143,7 @@ Remote team memory, dashboards, graph reasoning, and vector-heavy backends could
 
 ## 11. Repository and Deliverables
 
-The repository includes complete first-party source code, setup instructions, test scripts, scenario definitions, example output generation paths, documentation, a static project web page, and this final report source. The demo can follow `docs/demo-runbook.md`.
+The repository includes complete first-party source code, setup instructions, test scripts, scenario definitions, generated example-output paths, documentation, a static project web page, and this final report source. The demo can follow `docs/demo-runbook.md`.
 
 Key reviewer entry points:
 
