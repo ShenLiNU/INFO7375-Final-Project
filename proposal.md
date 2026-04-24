@@ -96,7 +96,7 @@
 | MemKraft | local-first、可审计存储、显式 retrieval/injection、可验证工具链 | 作为**工程设计灵感与运行时边界参考** |
 | Knox | memory brain、working cache、retrieval split、长期状态系统叙事 | 作为**架构叙事与能力拆分灵感** |
 | VCPToolBox | notebook artifact + retrieval substrate 分层、可见记忆工件 | 作为**memory artifact 设计灵感** |
-| OMO-memory（先前原型） | runtime + adapter 分离、本地 SQLite、bounded context assembly、handoff / checkpoint 思路 | 作为**最直接的本地可行性先验与原型参考** |
+| 早期本地原型仓库 | runtime + adapter 分离、本地 SQLite、bounded context assembly、handoff / checkpoint 思路 | 作为**最直接的本地可行性先验与原型参考** |
 
 因此，本项目的融合方式不是“把所有项目的代码接起来”，而是：
 

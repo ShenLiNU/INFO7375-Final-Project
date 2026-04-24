@@ -1,70 +1,59 @@
 # PROJECT KNOWLEDGE BASE
 
-**Generated:** 2026-04-23
-**Commit:** 846a2f9
+**Generated:** 2026-04-24
 **Branch:** master
 
 ## OVERVIEW
-Course project repo for a local-first persistent memory runtime for coding agents. The current first-party surface is documentation-first; implementation is planned, but most executable code in this checkout lives under `tmp/` as upstream/reference material.
+This repository now contains a working first-party implementation of a local-first persistent memory runtime for coding agents, plus a thin OpenCode adapter and evaluation flows. The docs in the repo root still describe the project boundary, but the code and tests are real, not just planned.
 
 ## STRUCTURE
 ```text
 INFO7375 Final Project/
-├── assignment.txt               # Course requirements and deliverables
-├── proposal.md                  # Outward-facing project proposal
-├── implementation-brief.md      # Internal execution boundary and MVP guide
-├── progress.md                  # Live status / milestone tracker
-├── AGENTS.md                    # Root rules for this repo
-└── tmp/                         # Embedded upstream/reference repos; not first-party product code
+├── README.md                  # Primary project overview and setup notes
+├── assignment.txt             # Course requirements and deliverables
+├── proposal.md                # Outward-facing project proposal
+├── implementation-brief.md    # Internal execution boundary and MVP guide
+├── progress.md                # Live status / milestone tracker
+├── docs/                      # Reviewer-facing delivery notes and final-report guidance
+├── packages/
+│   ├── runtime/               # Memory runtime, storage, retrieval, context assembly
+│   └── opencode-adapter/      # Thin OpenCode-facing bridge
+├── evaluation/                # Scenario definitions and validation flows
+└── tmp/                       # Embedded upstream/reference repos, read-only reference material
 ```
 
 ## WHERE TO LOOK
 | Task | Location | Notes |
 |------|----------|-------|
 | Understand course constraints | `assignment.txt` | External grading and deliverable requirements |
-| Understand project thesis | `proposal.md` | Runtime-first framing, OpenCode as demo surface |
-| Understand MVP boundary | `implementation-brief.md` | Source of truth for build scope |
-| Check current status | `progress.md` | Milestones, TODOs, scope guardrails |
-| Study OpenCode host patterns | `tmp/opencode-upstream/` | Reference only; obey local AGENTS there |
-| Study memory-system ideas | `tmp/memkraft/` | Reference only; not first-party code |
+| Understand project framing | `README.md` and `proposal.md` | Runtime-first thesis and demo surface |
+| Understand MVP boundary | `implementation-brief.md` | Source of truth for scope and non-goals |
+| Check current status | `progress.md` | Milestones, TODOs, risks, and recent decisions |
+| Inspect runtime code | `packages/runtime/` | Storage, retrieval, and context assembly |
+| Inspect adapter boundary | `packages/opencode-adapter/` | Thin bridge into OpenCode inputs |
+| Review evaluation coverage | `evaluation/` | Scenario setup and validation scripts |
+| Study reference material | `tmp/opencode-upstream/`, `tmp/memkraft/` | Reference only, not first-party implementation targets |
 
 ## CONVENTIONS
-- Treat this repo as **runtime-first**, not plugin-first. The core product is the memory runtime; any OpenCode adapter must remain thin.
-- The current repo is **planning-first**. Do not invent nonexistent source layout; create first-party implementation structure deliberately when implementation starts.
-- Use `implementation-brief.md` as the stable internal scope document. Use `progress.md` as the mutable execution log.
-- Keep MVP and stretch goals separate. Do not silently promote stretch work into the critical path.
-- Prefer explainable, bounded retrieval and context assembly over clever but opaque memory behavior.
+- Keep the product **runtime-first**, with OpenCode as the demo and integration surface.
+- Keep the adapter thin. Memory logic belongs in the runtime, not in host glue.
+- Use `progress.md` for live execution notes and `implementation-brief.md` for scope guardrails.
+- Keep MVP and stretch goals separate. Do not quietly promote stretch work into the critical path.
+- Prefer explainable, bounded retrieval and context assembly over opaque memory behavior.
+- Treat `tmp/` as read-only reference material unless a task explicitly says otherwise.
 
 ## ENVIRONMENT / DEPENDENCY RULES
-- If the project needs environment changes, use **project-level isolation only**.
-- Python: use a project-local virtual environment such as `.venv/` inside this repo; do not install project dependencies into the system/global Python.
-- Node/Bun: install dependencies in the project workspace only; do not rely on globally installed packages except existing host tooling the user already has.
-- Any future runtime artifacts, caches, or local databases must stay inside the project directory or a project-local config/data directory.
-- Do not modify global shell config, global package-manager defaults, or machine-wide tool settings for this project.
+- Use project-local isolation only.
+- Python work should stay in a project-local `.venv/`.
+- Node and Bun dependencies should stay in the project workspace.
+- Any runtime artifacts, caches, SQLite files, or logs should stay inside the repo or a repo-local data directory.
+- Do not modify global shell config, global package manager defaults, or machine-wide tool settings for this project.
 
-## ANTI-PATTERNS (THIS PROJECT)
-- Do not turn this into a universal memory OS.
-- Do not make the OpenCode adapter/plugin the system core.
-- Do not deep-fuse every inspiration source unless actually validated and adopted.
-- Do not make headless self-bootstrapping a hard dependency for project success.
-- Do not start with graph memory, remote team memory, or dashboard-first work.
-- Do not let host integration details drive runtime design.
-- Do not over-inject context or allow retrieval noise to dominate the workflow.
-- Do not pollute the system global environment with project dependencies.
-- Do not treat `tmp/` reference repos as first-party implementation targets unless explicitly instructed.
-
-## UNIQUE STYLES
-- This repo currently has more architectural intent than code. Documentation is authoritative until first-party implementation directories exist.
-- Reference repos under `tmp/` are here to study boundaries, patterns, and tradeoffs, not to be modified as part of normal project work.
-- The project’s quality bar is shaped by a hybrid MVP: local-first memory runtime, OpenCode demo path, Prompt Engineering + RAG evidence, and a small but real evaluation loop.
-
-## COMMANDS
-```bash
-# Current repo state: planning docs only, no first-party build commands yet.
-# When implementation starts, add project-local commands here and keep them scoped to this repo.
-```
+## CURRENT WORKFLOW
+- Runtime verification starts with unit and scenario tests in `packages/runtime/` and `evaluation/`.
+- OpenCode validation uses the prepared non-hook flow described in `README.md` and the delivery docs under `docs/`.
+- Final delivery artifacts should stay in the tracked submission set, while local planning notes and generated workspace clutter stay ignored.
 
 ## NOTES
-- There was no first-party `AGENTS.md` before this file; embedded AGENTS under `tmp/` belong to the reference repos, not this project.
-- `tmp/` is large and deep. Keep first-party work outside it unless the task is explicitly about upstream/reference analysis.
-- When actual code lands, consider adding child `AGENTS.md` files only at real ownership boundaries such as `packages/`, `src/`, `runtime/`, `opencode-adapter/`, or `tests/`.
+- `tmp/` is large and deep. Keep first-party work outside it unless the task is explicitly about upstream or reference analysis.
+- Add new child `AGENTS.md` files only at real ownership boundaries such as `packages/`, `runtime/`, `opencode-adapter/`, `evaluation/`, or `tests/` if the repo grows further.

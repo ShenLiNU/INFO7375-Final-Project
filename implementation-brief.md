@@ -213,13 +213,13 @@ To stay inside semester-project scope, we explicitly cut or delay:
 ### Use as primary implementation reference
 
 - `proposal.md`
-- `C:\C\OpenCodeProjects\OMO-memory`
+- `local prototype repository`
 - `tmp/opencode-upstream`
 
 ### Use as targeted design inspiration
 
 - `tmp/memkraft`
-- `C:\C\OpenCodeProjects\VCPresearch\repo\VCPToolBox`
+- `local VCP research repository`
 
 ### Use as conceptual framing / related work
 
@@ -238,9 +238,9 @@ Only claim that a reference influenced this project when the specific inspected 
 
 Current scoped reference lessons:
 
-- `C:\C\OpenCodeProjects\OMO-memory`: useful for runtime-vs-adapter separation, bounded memory context preview, explicit promotion, task-scoped checkpoints, episodic decay, deduplication, and SQLite FTS5 as a lightweight retrieval improvement
+- `local prototype repository`: useful for runtime-vs-adapter separation, bounded memory context preview, explicit promotion, task-scoped checkpoints, episodic decay, deduplication, and SQLite FTS5 as a lightweight retrieval improvement
 - `tmp/memkraft`: useful for tiered memory, reversible tombstone/recovery behavior, lifecycle operations such as compact/digest/health, decision records with what/why/how rationale, evidence-first recall, and source-attributed artifacts
-- `C:\C\OpenCodeProjects\VCPresearch\repo\VCPToolBox`: useful for read-only context bridge boundaries, context-aware strategy selection, caching, and defensive context folding; its vector-heavy TagMemo/EPA stack is reference material, not an MVP dependency
+- `local VCP research repository`: useful for read-only context bridge boundaries, context-aware strategy selection, caching, and defensive context folding; its vector-heavy TagMemo/EPA stack is reference material, not an MVP dependency
 - Knox docs: useful for the framing of layered memory, context-aware loading, consolidation, selective forgetting, and multi-strategy retrieval; its unlimited-context, graph, and platform claims remain conceptual inspiration rather than implementation scope
 
 ## 9. Acceptance Criteria

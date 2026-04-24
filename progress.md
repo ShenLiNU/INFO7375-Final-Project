@@ -27,8 +27,8 @@ Phase 1 implementation started. First-party runtime scaffolding now exists outsi
 - Reviewed and rewrote `proposal.md`
 - Evaluated external inspiration sources at a direction level
 - Analyzed local reference projects:
-  - `C:\C\OpenCodeProjects\OMO-memory`
-  - `C:\C\OpenCodeProjects\VCPresearch`
+  - `local prototype repository`
+  - `local VCP research repository`
 - Pulled local reference copies into `tmp/`:
   - `tmp/opencode-upstream`
   - `tmp/memkraft`
@@ -119,9 +119,9 @@ Not in scope for required completion:
 
 ## Reference Review Notes
 
-- `C:\C\OpenCodeProjects\OMO-memory` was inspected as the closest prior prototype. Useful ideas include runtime/adapter separation, bounded context preview, explicit `memory_promote`, task-scoped checkpoint tools, episodic decay, deduplication, and SQLite FTS5 recall. For this project, those remain scoped optimization candidates rather than required parity targets.
+- `local prototype repository` was inspected as the closest prior prototype. Useful ideas include runtime/adapter separation, bounded context preview, explicit `memory_promote`, task-scoped checkpoint tools, episodic decay, deduplication, and SQLite FTS5 recall. For this project, those remain scoped optimization candidates rather than required parity targets.
 - `tmp/memkraft` was inspected as a local-first memory toolkit reference. Useful ideas include tiered memory, reversible tombstone/recovery behavior, compact/digest/health lifecycle operations, decision records that preserve what/why/how rationale, evidence-first recall, and source-attributed human-readable artifacts. Graph links, time travel, broad CLI surface, and benchmark claims remain outside the critical path.
-- `C:\C\OpenCodeProjects\VCPresearch\repo\VCPToolBox` was inspected for RAG and context-management patterns. Useful ideas include read-only `ContextBridge` style boundaries, cached context signals, defensive context folding, dynamic strategy selection, and clear failure fallbacks. Its vector-heavy TagMemo/EPA/residual-pyramid stack is not a dependency for this MVP.
+- `local VCP research repository` was inspected for RAG and context-management patterns. Useful ideas include read-only `ContextBridge` style boundaries, cached context signals, defensive context folding, dynamic strategy selection, and clear failure fallbacks. Its vector-heavy TagMemo/EPA/residual-pyramid stack is not a dependency for this MVP.
 - Knox memory docs were reviewed as conceptual guidance for layered memory, context-aware loading, consolidation, selective forgetting, and multi-strategy retrieval. The unlimited-context and graph/platform framing should be cited as inspiration only, not as a claim implemented here.
 
 ## Phase 1 Design Decisions
