@@ -1,0 +1,119 @@
+Generative AI Project Assignment
+Objective
+The objective of this assignment is to develop a sophisticated generative AI system that addresses real-world needs in your chosen domain. Students will build a practical application that demonstrates mastery of generative AI technologies and concepts. This project can be completed individually or in groups of up to three members, with each student required to submit their own project documentation.
+
+Project Requirements
+Core Components
+Your generative AI project must implement at least two of the following components:
+
+Prompt Engineering
+Design systematic prompting strategies
+Implement context management
+Create specialized user interaction flows
+Handle edge cases and errors gracefully
+Fine-Tuning
+Collect and prepare domain-specific training data
+Fine-tune a base model for your specific use case
+Implement evaluation metrics for model performance
+Document the fine-tuning process and results
+Retrieval-Augmented Generation (RAG)
+Build a knowledge base for your domain
+Implement vector storage and retrieval
+Design relevant document chunking strategies
+Create effective ranking and filtering mechanisms
+Multimodal Integration
+Combine text with image, audio, or video generation
+Implement cross-modal understanding or generation
+Design cohesive multimodal user experiences
+Handle modality-specific challenges
+Synthetic Data Generation
+Create synthetic datasets for training or testing
+Implement data augmentation techniques
+Ensure diversity and quality of generated data
+Address privacy or ethical considerations
+Suggested Application Types
+Choose one of the following project types or propose your own:
+
+AI Content Creation Assistant
+Creative Writing or Storytelling System
+Image Generation or Editing Tool
+Educational Content Generator
+Marketing Material Creator
+Technical Documentation Assistant
+Research Synthesis Tool
+Virtual Environment Designer
+Interactive Media Generator
+Personalized Learning Content Creator
+Submission Requirements
+GitHub Repository
+Your repository must include:
+
+Complete source code
+Documentation
+Setup instructions
+Testing scripts
+Example outputs
+Fine-tuning datasets (or sample if large)
+Knowledge base (if using RAG)
+Documentation
+Submit a PDF document containing:
+
+System architecture diagram
+Implementation details
+Performance metrics
+Challenges and solutions
+Future improvements
+Ethical considerations
+Video Demonstration
+Create a 10-minute video showing:
+
+Live system demo
+Key features explanation
+Technical architecture overview
+Results and performance analysis
+Lessons learned
+Web Page
+Create a simple web page that:
+
+Showcases your project
+Provides an interactive demo (if possible)
+Explains key features
+Links to your GitHub repository
+Includes project documentation
+Evaluation Criteria
+Technical Implementation (40%)
+Effective implementation of chosen generative AI techniques
+System performance and reliability
+Code quality and organization
+Technical innovation
+Creativity and Application (20%)
+Novel application of technologies
+Creative problem-solving
+Unique features or approach
+Real-world utility
+Documentation and Presentation (20%)
+Code documentation
+Technical writing
+Video presentation
+Web page design and content
+Setup instructions
+User Experience and Output Quality (20%)
+Output quality and relevance
+Response/generation time
+Error handling
+Interface usability
+Overall user experience
+Technical Resources
+Hugging Face for models and fine-tuning
+LangChain or LlamaIndex for RAG implementation
+Vector databases (Pinecone, Weaviate, or Milvus)
+OpenAI, Anthropic, or open-source generative models
+Streamlit, Flask, or React for web interfaces
+GitHub Pages for hosting your project web page
+Ethical Guidelines
+Ensure your project respects copyright and intellectual property
+Consider bias, fairness, and representation in your system
+Document limitations and potential misuse scenarios
+Implement appropriate content filtering where necessary
+Address privacy considerations if collecting or using user data
+Note: All code must be original and properly documented. Any use of external resources must be cited appropriately.
