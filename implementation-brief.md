@@ -171,7 +171,7 @@ Responsibilities:
 
 ### Priority 2: good if time allows
 
-- better ranking logic
+- better ranking logic beyond the current keyword/tag/kind/FTS scoring blend
 - richer handoff artifacts
 - clearer memory inspection tooling
 - more explicit multi-agent/shared-vs-local memory handling
@@ -183,6 +183,19 @@ Responsibilities:
 - vector backend swap or mem0-backed experimental branch
 - OmO orchestration sync
 - advanced checkpoint semantics
+
+### Post-MVP optimization directions
+
+Once the Priority 1 runtime path is validated, optimization work should improve the existing local-first loop rather than change the product boundary. The most useful reference systems point toward a few scoped refinements:
+
+- explainable retrieval tuning: keep deterministic scoring, but make keyword, tag, kind, recency, and task-scope contributions easier to inspect
+- recall logging: record the query, candidate memories, score reasons, included bundle items, and omitted items for report/debug evidence
+- lifecycle rules: add lightweight policies for consolidation, decay, pruning, tombstone/recovery, and health checks before considering graph or vector-heavy retrieval
+- artifact clarity: improve generated session summaries, handoff files, and prompt documents so each recalled memory has clear provenance
+- inspection controls: expose read-only memory/status/context views before adding write-heavy plugin or dashboard surfaces
+- multi-agent hygiene: keep shared task state separate from agent-local trace state, and require explicit promotion before subagent output becomes durable shared memory
+
+These are optimization candidates, not new MVP requirements. They should be adopted only when they strengthen the final demo, evaluation, or report without expanding into a general memory OS.
 
 ## 7. What We Intentionally Cut
 
@@ -218,6 +231,17 @@ Rule of thumb:
 
 - borrow architecture and interaction ideas freely
 - do not promise deep implementation fusion unless we actually validate and use it
+
+### Reference claim policy
+
+Only claim that a reference influenced this project when the specific inspected behavior, file, architecture pattern, or evaluation idea is recorded in `progress.md` or the final report. Otherwise describe the source as background inspiration.
+
+Current scoped reference lessons:
+
+- `C:\C\OpenCodeProjects\OMO-memory`: useful for runtime-vs-adapter separation, bounded memory context preview, explicit promotion, task-scoped checkpoints, episodic decay, deduplication, and SQLite FTS5 as a lightweight retrieval improvement
+- `tmp/memkraft`: useful for tiered memory, reversible tombstone/recovery behavior, lifecycle operations such as compact/digest/health, decision records with what/why/how rationale, evidence-first recall, and source-attributed artifacts
+- `C:\C\OpenCodeProjects\VCPresearch\repo\VCPToolBox`: useful for read-only context bridge boundaries, context-aware strategy selection, caching, and defensive context folding; its vector-heavy TagMemo/EPA stack is reference material, not an MVP dependency
+- Knox docs: useful for the framing of layered memory, context-aware loading, consolidation, selective forgetting, and multi-strategy retrieval; its unlimited-context, graph, and platform claims remain conceptual inspiration rather than implementation scope
 
 ## 9. Acceptance Criteria
 
