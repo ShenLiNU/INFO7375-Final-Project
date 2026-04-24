@@ -1,0 +1,32 @@
+{
+  "id": "architecture-rationale",
+  "title": "Recall a prior architecture decision and rationale",
+  "purpose": "Demonstrate that a later workflow can recover why the project is runtime-first and why the OpenCode adapter must remain thin.",
+  "projectId": "info7375-final",
+  "seedMemory": [
+    {
+      "kind": "project-fact",
+      "text": "The core product is a local-first persistent memory runtime for coding agents, not an OpenCode plugin-first product.",
+      "tags": ["architecture", "runtime-first"]
+    },
+    {
+      "kind": "decision-memory",
+      "text": "Keep the OpenCode adapter thin so host integration details do not drive runtime design or block core verification.",
+      "taskId": "architecture-review",
+      "tags": ["adapter", "rationale"]
+    }
+  ],
+  "task": {
+    "taskId": "architecture-review",
+    "prompt": "Explain the current system boundary and why the adapter should stay thin while planning the next implementation milestone."
+  },
+  "expectedRecall": [
+    "The core product is a local-first persistent memory runtime for coding agents, not an OpenCode plugin-first product.",
+    "Keep the OpenCode adapter thin so host integration details do not drive runtime design or block core verification."
+  ],
+  "successCriteria": [
+    "The memory-assisted path surfaces both the architecture boundary and its rationale.",
+    "The later workflow preserves runtime-first planning instead of drifting into plugin-first scope.",
+    "The recalled context stays explainable and bounded before injection."
+  ]
+}

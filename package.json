@@ -7,7 +7,19 @@
     "node": ">=24.13.0"
   },
   "scripts": {
-    "test": "node --test packages/runtime/test/*.test.ts",
-    "test:runtime": "node --test packages/runtime/test/*.test.ts"
+    "test": "node --test packages/runtime/test/*.test.ts evaluation/*.test.ts",
+    "test:runtime": "node --test packages/runtime/test/*.test.ts",
+    "test:evaluation": "node --test evaluation/*.test.ts",
+    "evaluate:project-rule": "node evaluation/run-project-rule.ts",
+    "prepare:opencode-project-rule": "node evaluation/prepare-opencode-project-rule.ts",
+    "prepare:opencode-scenario": "node evaluation/prepare-opencode-scenario.ts",
+    "prepare:opencode-interrupted-task": "node evaluation/prepare-opencode-scenario.ts interrupted-task",
+    "prepare:opencode-architecture-rationale": "node evaluation/prepare-opencode-scenario.ts architecture-rationale",
+    "prepare:opencode-decision-update": "node evaluation/prepare-opencode-scenario.ts decision-update",
+    "validate:opencode-scenario": "node evaluation/validate-opencode-scenario.ts",
+    "validate:opencode-project-rule": "node evaluation/validate-opencode-scenario.ts project-rule 4096",
+    "validate:opencode-interrupted-task": "node evaluation/validate-opencode-scenario.ts interrupted-task 4097",
+    "validate:opencode-architecture-rationale": "node evaluation/validate-opencode-scenario.ts architecture-rationale 4098",
+    "validate:opencode-decision-update": "node evaluation/validate-opencode-scenario.ts decision-update 4099"
   }
 }

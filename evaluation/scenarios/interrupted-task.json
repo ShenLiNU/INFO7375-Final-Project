@@ -1,0 +1,33 @@
+{
+  "id": "interrupted-task",
+  "title": "Resume an interrupted coding task with task memory",
+  "purpose": "Demonstrate that a later session can recover unfinished implementation state and continue a coding task without the user restating the latest progress.",
+  "projectId": "info7375-final",
+  "seedMemory": [
+    {
+      "kind": "task-memory",
+      "text": "Phase 1 runtime scaffolding is committed; next work should extend evaluation scenarios before deeper OpenCode integration.",
+      "taskId": "phase-1-follow-up",
+      "tags": ["resume", "task-state"]
+    },
+    {
+      "kind": "session-summary",
+      "text": "The repo now has a runtime-first scaffold, passing tests, and an untracked tmp reference area that should remain outside first-party commits.",
+      "taskId": "phase-1-follow-up",
+      "tags": ["handoff", "session"]
+    }
+  ],
+  "task": {
+    "taskId": "phase-1-follow-up",
+    "prompt": "Continue the project after the initial scaffold commit and choose the next smallest runtime-first step."
+  },
+  "expectedRecall": [
+    "The repo now has a runtime-first scaffold, passing tests, and an untracked tmp reference area that should remain outside first-party commits.",
+    "Phase 1 runtime scaffolding is committed; next work should extend evaluation scenarios before deeper OpenCode integration."
+  ],
+  "successCriteria": [
+    "The memory-assisted path resumes the task without the user repeating the latest repo state.",
+    "Task memory and session summary are both available for the resumed workflow.",
+    "The resumed context remains bounded and readable before injection."
+  ]
+}

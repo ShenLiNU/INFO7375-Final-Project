@@ -8,6 +8,11 @@
       "kind": "project-fact",
       "text": "Do not modify tmp reference repositories during first-party implementation.",
       "tags": ["project-rule", "scope"]
+    },
+    {
+      "kind": "project-fact",
+      "text": "Do not modify tmp reference repositories during first-party implementation.",
+      "tags": ["project-rule", "duplicate-evidence"]
     }
   ],
   "task": {

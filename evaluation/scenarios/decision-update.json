@@ -1,0 +1,33 @@
+{
+  "id": "decision-update",
+  "title": "Supersede stale architecture decision",
+  "purpose": "Demonstrate that a newer decision-memory can explicitly supersede an older architecture decision while preserving audit evidence.",
+  "projectId": "info7375-final",
+  "seedMemory": [
+    {
+      "kind": "decision-memory",
+      "text": "Decision: store memory inside the OpenCode adapter.",
+      "taskId": "architecture-review",
+      "tags": ["architecture", "adapter", "stale-decision"]
+    },
+    {
+      "kind": "decision-memory",
+      "text": "Decision: keep memory storage in the local-first runtime while the OpenCode adapter stays thin.",
+      "taskId": "architecture-review",
+      "tags": ["architecture", "runtime", "current-decision"],
+      "supersedesText": ["Decision: store memory inside the OpenCode adapter."]
+    }
+  ],
+  "task": {
+    "taskId": "architecture-review",
+    "prompt": "State the current memory storage decision after superseding stale adapter ownership guidance."
+  },
+  "expectedRecall": [
+    "Decision: keep memory storage in the local-first runtime while the OpenCode adapter stays thin."
+  ],
+  "successCriteria": [
+    "The memory-assisted path recalls only the current decision by default.",
+    "The stale decision is excluded from normal recall.",
+    "The recall log records a superseded memory id for audit evidence."
+  ]
+}
