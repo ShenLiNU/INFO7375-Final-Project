@@ -1,0 +1,25 @@
+{
+  "id": "project-rule",
+  "title": "Recall repository guardrails before implementation",
+  "purpose": "Demonstrate that a later coding session can retrieve a durable project rule and include it in a bounded context bundle before making changes.",
+  "projectId": "info7375-final",
+  "seedMemory": [
+    {
+      "kind": "project-fact",
+      "text": "Do not modify tmp reference repositories during first-party implementation.",
+      "tags": ["project-rule", "scope"]
+    }
+  ],
+  "task": {
+    "taskId": "phase-1-scaffold",
+    "prompt": "Create first-party runtime scaffolding without touching reference repositories."
+  },
+  "expectedRecall": [
+    "Do not modify tmp reference repositories during first-party implementation."
+  ],
+  "successCriteria": [
+    "The memory-assisted path recalls the durable project rule.",
+    "The assembled context separates durable facts from working memory.",
+    "The context bundle remains bounded before injection."
+  ]
+}
