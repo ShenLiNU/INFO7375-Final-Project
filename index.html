@@ -274,7 +274,7 @@
       .terminal {
         position: relative;
         z-index: 1;
-        padding: 18px;
+        padding: 20px;
         background: rgba(255, 250, 240, 0.08);
         border: 1px solid rgba(255, 250, 240, 0.18);
         border-radius: 20px;
@@ -282,11 +282,14 @@
 
       .terminal-bar {
         display: flex;
+        min-height: 14px;
+        align-items: center;
         gap: 7px;
-        margin-bottom: 18px;
+        margin-bottom: 24px;
       }
 
       .terminal-bar span {
+        flex: 0 0 11px;
         width: 11px;
         height: 11px;
         background: var(--gold);
@@ -311,7 +314,9 @@
         margin: 0;
         color: #f7ecd9;
         font-size: 0.88rem;
+        line-height: 1.65;
         white-space: pre-wrap;
+        overflow-wrap: anywhere;
       }
 
       .metric-strip {
@@ -627,6 +632,19 @@
         .hero-card {
           padding: 20px;
           border-radius: 22px;
+        }
+
+        .terminal {
+          padding: 16px;
+        }
+
+        .terminal-bar {
+          margin-bottom: 20px;
+        }
+
+        pre {
+          font-size: 0.8rem;
+          line-height: 1.7;
         }
       }
     </style>
