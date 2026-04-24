@@ -90,7 +90,7 @@ Evaluation uses deterministic tests and scenario-level OpenCode validation.
 
 The four project-specific scenarios are:
 
-| Scenario | Purpose | Expected proof |
+| Scenario | Purpose | Expected result |
 |---|---|---|
 | `project-rule` | Recall durable repository guardrails | Output includes the rule that `tmp/` is reference-only |
 | `interrupted-task` | Resume task state | Output includes remembered next steps and session summary |
@@ -99,11 +99,11 @@ The four project-specific scenarios are:
 
 The main verification command is `npm test`, which currently passes 26 tests across runtime and evaluation coverage. Real OpenCode validation is available through scenario-specific commands such as `npm run validate:opencode-decision-update` when a local OpenCode provider is configured.
 
-## 7. Results and Performance Metrics
+## 7. Results and Validation Metrics
 
 The latest local verification passed 26 tests. These tests cover persistence, context budgets, recall logs, decision memory, token cleanup, FTS fallback, governance statistics, snapshot export/import, invalid snapshot rejection, dry-run pruning, duplicate consolidation, supersession, legacy database migration, adapter behavior, session summaries, and handoff artifacts.
 
-Scenario preparation emits structured metrics in `recall-metrics.json`, including expected memory count, matched expected count, candidate count, included count, omitted count, superseded count, unexpected included count, and character budget usage. This provides result and performance evidence for the RAG loop without depending only on screenshots.
+Scenario preparation emits structured metrics in `recall-metrics.json`, including expected memory count, matched expected count, candidate count, included count, omitted count, superseded count, unexpected included count, and character budget usage. This provides results for the RAG loop without depending only on screenshots.
 
 The `decision-update` real OpenCode validation passed with exact output:
 
@@ -117,7 +117,7 @@ Scope control was the first major challenge. Memory systems can easily expand in
 
 Retrieval noise was another challenge. Injecting too much memory can harm agent performance. The solution was bounded context assembly with explicit `maxItems` and `maxChars`, plus recall logs that show which candidates were included or omitted.
 
-Evidence quality was also important. A prompt alone does not prove that retrieval worked. The solution was to generate separate artifacts: recall logs, recall metrics, memory snapshots, prune plans, handoff files, and validation results.
+Result quality was also important. A prompt alone does not show that retrieval worked. The solution was to generate separate outputs: recall logs, recall metrics, memory snapshots, prune plans, handoff files, and validation results.
 
 Compatibility was a practical challenge because older SQLite databases may have stricter memory-kind constraints. The solution was a migration path and tests that confirm legacy databases can accept `decision-memory`.
 
@@ -133,11 +133,11 @@ The MVP is single-user and local. It does not include team memory, cloud sync, g
 
 Future work should remain aligned with the runtime-first scope. Useful next steps include better deterministic scoring analysis, richer recall-log inspection, safer memory editing tools, optional lightweight semantic retrieval, stronger secret-detection warnings, and clearer health checks for memory lifecycle quality.
 
-Remote team memory, dashboards, graph reasoning, and vector-heavy backends could be explored later, but they are not required for the current project goal. The core value is already demonstrated by a working local memory runtime, prompt assembly, RAG retrieval, governance controls, and real OpenCode validation evidence.
+Remote team memory, dashboards, graph reasoning, and vector-heavy backends could be explored later, but they are not required for the current project goal. The core value is already demonstrated by a working local memory runtime, prompt assembly, RAG retrieval, governance controls, and real OpenCode validation results.
 
 ## 11. Repository and Deliverables
 
-The repository includes complete first-party source code, setup instructions, test scripts, scenario definitions, example output generation paths, documentation, a static project web page, and this final PDF report source. The video demonstration can follow `docs/demo-runbook.md`.
+The repository includes complete first-party source code, setup instructions, test scripts, scenario definitions, example output generation paths, documentation, a static project web page, and this final report source. The demo can follow `docs/demo-runbook.md`.
 
 Key reviewer entry points:
 
@@ -147,5 +147,4 @@ Key reviewer entry points:
 - `packages/opencode-adapter/`
 - `evaluation/`
 - `docs/evidence-matrix.md`
-- `docs/final-delivery-checklist.md`
 - `docs/demo-runbook.md`
