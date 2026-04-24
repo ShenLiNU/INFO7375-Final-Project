@@ -10,7 +10,7 @@ The system is designed for realistic developer workflows. It stores durable proj
 
 ## 2. Generative AI Components
 
-The project implements two required generative AI components.
+The project implements two required generative AI components: Prompt Engineering and Retrieval-Augmented Generation (RAG). It does not claim fine-tuning, multimodal generation, or synthetic-data generation as implemented components.
 
 ### Prompt Engineering
 
@@ -22,7 +22,7 @@ The prompt strategy also includes context budget controls through `maxItems` and
 
 The system implements a lightweight and explainable RAG loop. The knowledge base is local SQLite memory state. Retrieval filters by project, task, memory kind, tags, and query text. Ranking uses deterministic keyword, tag, kind, and SQLite FTS5/BM25-backed text matching when available. The retrieved memories are assembled into a bounded context bundle and attached to a real OpenCode run.
 
-Unlike vector-heavy RAG systems, this project emphasizes auditability. Each scenario can produce `recall-log.json`, `recall-metrics.json`, `memory-snapshot.json`, and `prune-plan.json` so retrieval decisions can be inspected in the final report.
+The assignment mentions vector storage as a typical RAG implementation path. This project intentionally uses SQLite FTS5 and deterministic ranking instead of a hosted vector database because the domain is persistent coding-agent memory. In this domain, the important requirement is not only semantic similarity; it is also auditability, local reproducibility, scope control, and the ability to explain why a project rule, task state, or architecture decision was recalled. Each scenario can produce `recall-log.json`, `recall-metrics.json`, `memory-snapshot.json`, and `prune-plan.json` so retrieval decisions can be inspected in the final report.
 
 ## 3. System Architecture
 

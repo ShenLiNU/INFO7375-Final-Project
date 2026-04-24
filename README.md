@@ -1,5 +1,8 @@
 # INFO7375 Final Project
 
+**Author:** Shen Li & Yuxiao Lin  
+**Tools used:** [OpenCode](https://github.com/anomalyco/opencode) & [OhMyOpenAgent](https://github.com/code-yeongyu/oh-my-openagent)
+
 This repository implements a local-first persistent memory runtime for coding agents, with OpenCode as the primary integration and demo surface.
 
 The project is intentionally runtime-first rather than plugin-first. The memory runtime is the core product, and the OpenCode adapter remains a thin layer that prepares bounded context for a real coding workflow.
@@ -83,6 +86,10 @@ The current project-specific scenarios are:
 
 ## RAG in the Current Implementation
 
+This project intentionally chooses **Prompt Engineering** and **Retrieval-Augmented Generation (RAG)** as the two implemented course components.
+
+Prompt Engineering is implemented through structured OpenCode prompt documents, bounded memory sections, scenario-specific output instructions, and session handoff templates. RAG is implemented through a local SQLite knowledge base, scoped retrieval, explainable ranking, context assembly, and validation artifacts.
+
 Yes, the current implementation already includes a real RAG loop.
 
 It is a lightweight, explainable RAG pipeline rather than a vector-heavy one:
@@ -92,6 +99,8 @@ It is a lightweight, explainable RAG pipeline rather than a vector-heavy one:
 3. rank results deterministically
 4. assemble a bounded context bundle
 5. inject that bundle into an OpenCode-readable prompt document
+
+The assignment lists vector storage as a common RAG implementation path, but this project deliberately uses SQLite FTS5 plus deterministic ranking because the target domain is coding-agent memory: reviewers need to inspect exactly why a memory was recalled, which candidates were omitted, and how stale decisions were superseded. This makes the RAG layer local-first, reproducible, and auditable without depending on a hosted vector database.
 
 This matches the project brief's preference for deterministic or explainable retrieval before heavier semantic systems.
 
