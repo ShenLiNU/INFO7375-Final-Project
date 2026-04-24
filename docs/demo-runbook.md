@@ -10,14 +10,14 @@ The core claim is: a local-first runtime can persist useful coding-agent memory,
 
 | Time | Segment | What to show | Evidence |
 |---|---|---|---|
-| 0:00-1:00 | Problem | Coding agents forget project rules, task state, and architecture rationale across sessions | `proposal.md`, `implementation-brief.md` |
+| 0:00-1:00 | Problem | Coding agents forget project rules, task state, and architecture rationale across sessions | `README.md`, `docs/final-report.md` |
 | 1:00-2:30 | Architecture | Runtime owns storage/retrieval/context assembly; adapter formats OpenCode input | `README.md`, package structure |
 | 2:30-4:30 | Local RAG loop | Memory item -> deterministic recall -> bounded bundle -> prompt document | `packages/runtime/src/*`, generated `prompt.md` |
 | 4:30-6:30 | Main scenario | Run or replay `project-rule` as the clearest scenario | `validation-result.json`, `recall-log.json` |
 | 6:30-7:45 | Supporting scenarios | Briefly show `interrupted-task` and `architecture-rationale` outputs | scenario JSON and validation records |
 | 7:45-8:45 | Evidence trail | Show `recall-log.json`: query, candidates, score reasons, included/omitted memory IDs, budget | generated artifact |
 | 8:45-9:30 | Evaluation | Explain baseline vs memory-assisted and strict OpenCode validations | `npm test`, `evaluate:project-rule` |
-| 9:30-10:00 | Limits | Local-first MVP, no graph/vector/dashboard/cloud/team sync | `implementation-brief.md` |
+| 9:30-10:00 | Limits | Local-first MVP, no graph/vector/dashboard/cloud/team sync | `docs/final-report.md` |
 
 ## Commands for Recording
 

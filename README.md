@@ -9,24 +9,24 @@ The project is intentionally runtime-first rather than plugin-first. The memory 
 
 ## Current Status
 
-The current first-party implementation is no longer documentation-only. The repo now includes:
+The first-party implementation is in place. The repository now includes:
 
 - a TypeScript runtime under `packages/runtime/`
 - a thin OpenCode adapter under `packages/opencode-adapter/`
 - project-specific evaluation scenarios and validation scripts under `evaluation/`
-- real non-hook OpenCode validation evidence under `.runtime-data/opencode-validation/`
+- validation outputs under `.runtime-data/opencode-validation/`
 
-The implemented path is already capable of:
+The runtime supports:
 
 - storing project, task, and session-summary memory locally in SQLite
 - recalling memory with deterministic project/task/kind/tag filtering plus SQLite FTS5-backed text matching when available
-- using shared token cleanup for deterministic and FTS recall so stopwords and repeated terms do not skew evidence
+- using shared token cleanup for deterministic and FTS recall so stopwords and repeated terms do not skew results
 - consolidating exact duplicate memories by reinforcing the existing item instead of storing noisy duplicates
 - superseding stale memories explicitly so newer decisions can replace old facts without deleting audit history
 - reporting memory governance stats for active, superseded, reinforced, and per-kind memory counts
 - exporting/importing portable memory snapshots for local backup, migration, and audit
 - producing dry-run pruning plans so storage cleanup can be reviewed before any deletion policy exists
-- generating recall metrics artifacts for scenario-level RAG evaluation evidence
+- generating recall metrics artifacts for scenario-level RAG evaluation
 - assembling a bounded context bundle that separates durable facts from working memory
 - generating session-summary and handoff markdown artifacts
 - preparing OpenCode-readable prompt documents without taking over hooks
@@ -37,11 +37,7 @@ The implemented path is already capable of:
 ```text
 INFO7375 Final Project/
 ├── README.md
-├── AGENTS.md
 ├── assignment.txt
-├── proposal.md
-├── implementation-brief.md
-├── progress.md
 ├── docs/
 ├── package.json
 ├── tsconfig.json
@@ -49,6 +45,8 @@ INFO7375 Final Project/
 │   ├── runtime/
 │   └── opencode-adapter/
 ├── evaluation/
+├── index.html
+├── site.js
 └── tmp/
 ```
 
@@ -65,7 +63,7 @@ First-party implementation lives outside `tmp/`. The `tmp/` directory contains r
 - `context-assembly.ts` creates bounded bundles for injection
 - `runtime.ts` exposes `remember`, `recall`, `buildContextBundle`, `getMemoryStats`, `exportMemorySnapshot`, `importMemorySnapshot`, `planMemoryPruning`, `createSessionSummary`, and `createHandoff`
 - `session-summary.ts` writes local markdown artifacts for summary and handoff flows
-- context bundles include `recallLog` metadata for retrieval audit evidence
+- context bundles include `recallLog` metadata for a retrieval audit trail
 
 ### OpenCode Adapter
 
@@ -88,9 +86,9 @@ The current project-specific scenarios are:
 
 This project intentionally chooses **Prompt Engineering** and **Retrieval-Augmented Generation (RAG)** as the two implemented course components.
 
-Prompt Engineering is implemented through structured OpenCode prompt documents, bounded memory sections, scenario-specific output instructions, and session handoff templates. RAG is implemented through a local SQLite knowledge base, scoped retrieval, explainable ranking, context assembly, and validation artifacts.
+Prompt Engineering is implemented through structured OpenCode prompt documents, bounded memory sections, scenario-specific output instructions, and session handoff templates. RAG is implemented through a local SQLite knowledge base, scoped retrieval, explainable ranking, context assembly, and validation outputs.
 
-Yes, the current implementation already includes a real RAG loop.
+The current implementation includes a real RAG loop.
 
 It is a lightweight, explainable RAG pipeline rather than a vector-heavy one:
 
@@ -100,7 +98,7 @@ It is a lightweight, explainable RAG pipeline rather than a vector-heavy one:
 4. assemble a bounded context bundle
 5. inject that bundle into an OpenCode-readable prompt document
 
-The assignment lists vector storage as a common RAG implementation path, but this project deliberately uses SQLite FTS5 plus deterministic ranking because the target domain is coding-agent memory: reviewers need to inspect exactly why a memory was recalled, which candidates were omitted, and how stale decisions were superseded. This makes the RAG layer local-first, reproducible, and auditable without depending on a hosted vector database.
+The assignment lists vector storage as a common RAG implementation path, but this project deliberately uses SQLite FTS5 plus deterministic ranking because the target domain is coding-agent memory: reviewers need to inspect exactly why a memory was recalled, which candidates were omitted, and how stale decisions were superseded. This keeps the RAG layer local-first, reproducible, and inspectable without depending on a hosted vector database.
 
 This matches the project brief's preference for deterministic or explainable retrieval before heavier semantic systems.
 
@@ -162,9 +160,9 @@ npm run validate:opencode-decision-update
 
 For real OpenCode host validation, prefer `npm run validate:opencode-scenario -- <scenario-id> <port>` when you want explicit port control. The scenario-specific validation aliases are convenience wrappers with preset ports.
 
-## Validation Evidence
+## Validation Outputs
 
-The repo has already produced real non-hook OpenCode validation evidence for the current project-specific scenarios:
+The repo has already produced real non-hook OpenCode validation outputs for the current project-specific scenarios:
 
 - `project-rule`
 - `interrupted-task`
@@ -187,18 +185,19 @@ The validation runner now enforces scenario-specific pass/fail semantics instead
 
 `recall-log.json` is intentionally separate from `prompt.md`: the prompt remains focused on what OpenCode should read, while the recall log gives the final report an audit trail of query, candidate memories, score reasons, included/omitted memory IDs, and budget usage.
 
-## Course Deliverable Relevance
+## Public Deliverables
 
-This repo now contains the main ingredients required by the implementation brief for the GitHub submission:
+This repository includes the public project materials:
 
-- code
+- source code
 - setup and usage instructions
 - tests and evaluation scripts
 - example artifacts and validation outputs
-- architecture-level documentation
-- reviewer-facing delivery notes under `docs/`
-
-The remaining work is less about proving that the runtime can function and more about polishing the final delivery materials such as the final report, demo framing, and presentation assets.
+- architecture documentation
+- `docs/final-report.md` and `docs/final-report.pdf`
+- `docs/evidence-matrix.md`
+- `docs/demo-runbook.md`
+- `index.html` and `site.js`
 
 ## Important Boundaries
 
@@ -207,15 +206,10 @@ The remaining work is less about proving that the runtime can function and more 
 - Do not expand into graph memory, remote shared memory, or dashboard-first work unless MVP needs are already satisfied.
 - Prefer explicit, explainable retrieval and bounded injection over opaque memory behavior.
 
-## Key Internal Docs
+## Public Delivery Files
 
-- `AGENTS.md` - root repo rules and project boundaries
-- `implementation-brief.md` - fixed internal scope and acceptance criteria
-- `progress.md` - live execution log and milestone status
-- `proposal.md` - outward-facing project framing
-- `assignment.txt` - course requirements and deliverables
+- `README.md` - project overview, setup, scripts, and deliverable pointers
+- `docs/final-report.md` and `docs/final-report.pdf` - formal report source and exported PDF
 - `docs/evidence-matrix.md` - requirement-to-artifact mapping for the final submission
-- `docs/demo-runbook.md` - 10-minute video/demo plan
-- `docs/final-report-outline.md` - PDF/report structure and section notes
-- `docs/artifact-selection.md` - guidance for choosing validation and recall-log evidence
-- `docs/final-delivery-checklist.md` - final submission, report, and demo checklist
+- `docs/demo-runbook.md` - presentation and demo plan
+- `index.html` and `site.js` - static project page and scenario demo logic
